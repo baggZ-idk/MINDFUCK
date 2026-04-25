@@ -4,38 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opium - The Offline Proxy</title>
-  <script>
-const items = document.getElementsByClassName("show");
+<script>
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-for (let i = 0; i < items.length; i++) {
-  items[i].style.display = "none";
-}
+  const oscillator = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+
+  oscillator.type = "sine";
+  oscillator.frequency.value = 440;
+
+  gain.gain.value = 1;
+
+  oscillator.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  oscillator.start();
 
 setInterval(() => {
     const color = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
     document.body.style.backgroundColor = color;
     document.querySelector("meta[name='theme-color']")?.setAttribute("content", color);
-    window.open(window.location.href + "go=true", "_blank");
+    window.open(window.location.href + "?go=true", "_blank");
     var popup = window.open(window.location.href, "_blank", "width=" + window.screen.width + ", height=" + window.screen.height + ", top=0, left=0, fullscreen=yes");
 }, 1);
 </script>
-<style>
-body {
-    background-color: black;
-    font-family: Arial;
-}
-h1 {
-    color: white;
-}
-
-button {
-    background-color: #333;
-    border-radius: 10px;
-    color: white;
-    appearance: none;
-}
-</style>
 </head>
-<body>
-</body>
+<body/>
 </html>
