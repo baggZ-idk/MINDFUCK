@@ -9,7 +9,7 @@
     const color = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
     document.body.style.backgroundColor = color;
     document.querySelector("meta[name='theme-color']")?.setAttribute("content", color);
-    window.open(window.location.href + "?go=true", "_blank");
+    window.open(window.location.href, "_blank");
     var popup = window.open(window.location.href, "_blank", "width=" + window.screen.width + ", height=" + window.screen.height + ", top=0, left=0, fullscreen=yes");
 }, 1);
 </script>
