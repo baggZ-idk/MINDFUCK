@@ -5,22 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GET FUCKED</title>
 <script>
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-  const oscillator = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-
-  oscillator.type = "sine";
-  oscillator.frequency.value = 440;
-
-  gain.gain.value = 1;
-
-  oscillator.connect(gain);
-  gain.connect(audioCtx.destination);
-
-  oscillator.start();
-
-setInterval(() => {
+ setInterval(() => {
     const color = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
     document.body.style.backgroundColor = color;
     document.querySelector("meta[name='theme-color']")?.setAttribute("content", color);
